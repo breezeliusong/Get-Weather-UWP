@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="GetFiveDayWhether.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GetFiveDayWhether"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="get whether" Click="Button_Click"/>
+        <GridView ItemsSource="{Binding collection}" x:Name="ForecastGridView">
+            <GridView.ItemTemplate>
+                <DataTemplate >
+                    <StackPanel>
+                        <TextBlock Name="forecastdatetextblock" Text="{Binding dt}"/>
+                        <TextBlock Name="forecasttemptextblock" Text="{Binding main.temp}" />
+                        <TextBlock Name="forecastdescriptiontextblock"  Text="{Binding weather[0].description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <Button Content="create file in the local folder" Click="Button_Click_1"/>
+        <Button Content="clear all the file in the local folder" Click="Button_Click_2"/>
+        <TextBlock Name="txtblock" Text="text"/>
+    </StackPanel>
+</Page>
